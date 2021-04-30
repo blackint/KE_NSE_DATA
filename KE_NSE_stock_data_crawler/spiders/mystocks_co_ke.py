@@ -14,21 +14,24 @@ class MystocksCoKeSpider(scrapy.Spider):
     name = "mystocks.co.ke"
     data_directory = "stock_data"
     allowed_domains = ["live.mystocks.co.ke"]
-    start_urls = ["http://live.mystocks.co.ke/"]
+    # start_urls = ["http://live.mystocks.co.ke/"]
 
     def url_generator(self):
         today = datetime.today().date()
-        a_week_ago = today - timedelta(days=30)
-        current_date = a_week_ago
+        some_days_ago = today - timedelta(days=7)
+        current_date = some_days_ago
         while current_date <= today:
             # Skip weekends
-            if current_date.weekday() > 5 or path.exists(
-                f"./{self.data_directory}/{current_date.isoformat()}.json"
-            ):
+            if current_date.weekday() > 5:
                 current_date = current_date + timedelta(days=1)
                 continue
 
-            yield f"{self.PRICE_LIST_URL}/{current_date.year}{current_date.month:02}{current_date.day:02}"
+            # For todays data the url is the base pricelist url
+            if current_date==today:
+                yield self.PRICE_LIST_URL
+            else:
+                yield f"{self.PRICE_LIST_URL}/{current_date.year}{current_date.month:02}{current_date.day:02}"
+            
             current_date = current_date + timedelta(days=1)
 
     def price_list_gen(self, response):
