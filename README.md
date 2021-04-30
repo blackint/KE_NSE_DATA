@@ -5,7 +5,7 @@ Running it locally
 
 
 
-(Install pipenv)[https://pypi.org/project/pipenv/]
+[Install pipenv](https://pypi.org/project/pipenv/)
 
 ```
 sudo apt install pipenv
