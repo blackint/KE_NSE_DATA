@@ -1,4 +1,6 @@
 # KE_NSE_DATA
+A crawler to get NSE data from https://mystocks.co.ke/
+
 
 
 Running it locally
@@ -11,9 +13,11 @@ Running it locally
 sudo apt install pipenv
 ```
 
-Run it
+
+Run it in a virtualenv 
 
 ```
 pipenv run scrapy crawl mystocks.co.ke
 ```
 
+The data is stored in `stock_data` folder
