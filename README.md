@@ -11,14 +11,16 @@ A crawler to get NSE data from https://mystocks.co.ke/ in json format
 git clone git@github.com:blackint/KE_NSE_DATA.git
 ```
 
+navigate to the project folder
+
 ```
-cd KE_NSE_DATA/KE_NSE_stock_data_crawler/
+cd KE_NSE_DATA/
 ```
 
 ### Install dependencies
 
-For virtualenv and package management this project uses pipenv
 
+For virtualenv and package management this project uses pipenv
 
 [Install pipenv](https://pypi.org/project/pipenv/)
 
