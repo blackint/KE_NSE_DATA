@@ -32,7 +32,6 @@ class KeNseStockDataCrawlerSpiderMiddleware:
     def process_spider_output(self, response, result, spider):
         # Called with the results returned from the Spider, after
         # it has processed the response.
-        # import pdb; pdb.set_trace()
         # Must return an iterable of Request, or item objects.
         for i in result:
             yield i
