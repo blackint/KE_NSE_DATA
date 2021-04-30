@@ -112,11 +112,5 @@ class MystocksCoKeSpider(scrapy.Spider):
                 self.logger.error("error getting data for row", row_data.get(), e)
                 continue
 
-        try:
-
-            self.file_writer(data, isodate)
-        except FileNotFoundError:
-            print(os.getcwd())
-            import pdb
-
-            pdb.set_trace()
+        self.file_writer(data, isodate)
+            
