@@ -25,12 +25,17 @@ class MystocksCoKeSpider(scrapy.Spider):
             if current_date.weekday() > 5:
                 current_date = current_date + timedelta(days=1)
                 continue
+            
+            # Skip data already downloaded
+            if path.exists(f"{self.data_directory}/{current_date.isoformat()}.json"):
+                current_date = current_date + timedelta(days=1)
+                continue
 
             # For todays data the url is the base pricelist url
             if current_date==today:
                 yield self.PRICE_LIST_URL
             else:
-                yield f"{self.PRICE_LIST_URL}/{current_date.year}{current_date.month:02}{current_date.day:02}"
+                yield f"{self.PRICE_LIST_URL}{current_date.year}{current_date.month:02}{current_date.day:02}"
             
             current_date = current_date + timedelta(days=1)
 
