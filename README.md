@@ -3,7 +3,7 @@ A crawler to get NSE data from https://mystocks.co.ke/
 
 
 
-Running it locally
+### Running it locally
 
 
 
